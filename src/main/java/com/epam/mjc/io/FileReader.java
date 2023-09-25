@@ -13,8 +13,7 @@ public class FileReader {
             String line;
             String text = "";
             while ((line = reader.readLine()) != null) {
-                text += line;
-                text += "\n";
+                text += line + "\n";
             }
             reader.close();
             int i = 0;
@@ -33,8 +32,6 @@ public class FileReader {
                 }
                 i++;
                 switch (key) {
-                    default:
-                        break;
                     case "Name":
                         person.setName(value);
                         break;
@@ -46,6 +43,8 @@ public class FileReader {
                         break;
                     case "Phone":
                         person.setPhone(Long.valueOf(value));
+                        break;
+                    default:
                         break;
                 }
             }
