@@ -58,7 +58,7 @@ public class FileReader {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return person;
     }
