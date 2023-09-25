@@ -14,14 +14,17 @@ public class FileReader {
             String line;
             String text = "";
             while ((line = reader.readLine()) != null) {
-                text += line + "\n";
+                bld.append(line);
+                bld.append('\n');
             }
+            text = bld.toString();
+            bld.setLength(0);
             reader.close();
             int i = 0;
             while (i < text.length()) {
                 String key = "";
                 String value = "";
-                while (text.charAt(i) != ':') {
+                while (text.charAt(i) != ':' && i < text.length()) {
                     bld.append(text.charAt(i));
                     i++;
                 }
@@ -29,9 +32,8 @@ public class FileReader {
                 bld.setLength(0);
                 i++;
                 i++;
-                while (text.charAt(i) != '\n') {
+                while (text.charAt(i) != '\n' && i < text.length()) {
                     bld.append(text.charAt(i));
-                    value += text.charAt(i);
                     i++;
                 }
                 value = bld.toString();
